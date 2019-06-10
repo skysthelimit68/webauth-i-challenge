@@ -12,6 +12,6 @@ server.use(helmet());
 server.use(cors());
 
 server.use('/api/users', usersRouter);
-server.use('/api/auth', authRouter)
+server.use('/api/restricted', authRouter)
 
 module.exports = server;
