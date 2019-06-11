@@ -3,7 +3,13 @@ const Users = require('../users/users-model.js');
 
 //middleware
 function restricted(req, res, next) {
-    const { username, password } = req.headers;
+   if(req.session && req.session.username) {
+       next();
+   } else {
+       res.status(401).json({ message: 'You shall not enter'})
+   }
+   
+    /* const { username, password } = req.headers;
     if( username && password ) {
         Users.findBy({ username })
         .first()
@@ -19,7 +25,7 @@ function restricted(req, res, next) {
         })
     } else {
         res.status(400).json({message: 'please log in with a valid username and password'})
-    }
+    }*/
 }
 
 module.exports = restricted;
