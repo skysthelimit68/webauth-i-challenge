@@ -30,7 +30,14 @@ const authRouter = require('../auth/auth-router.js')
 
 server.use(express.json());
 server.use(helmet());
-server.use(cors());
+//server.use(cors());
+//server.use(cors({credentials: true}))
+server.use(cors( // this enables the cookie-keeping
+    {
+        credentials : true,
+        origin : true,
+    }
+));
 server.use(session(sessionConfig));
 
 server.use('/api/users', usersRouter);

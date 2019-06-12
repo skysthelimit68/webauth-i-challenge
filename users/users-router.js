@@ -2,6 +2,7 @@
 const router = require('express').Router();
 const Users = require('./users-model.js');
 const restricted = require('../auth/restricted.js')
+const bcryptjs = require('bcryptjs');
 
 
 router.get('/', restricted, (req, res) => {
@@ -15,7 +16,7 @@ router.get('/', restricted, (req, res) => {
     })
 })
 
-/*
+
 router.post('/register', (req, res) => {
     let user = req.body;
     const hash = bcryptjs.hashSync(user.password, 8);
@@ -28,7 +29,7 @@ router.post('/register', (req, res) => {
         res.status(500).json(error);
     })
 })
-*/
+
 
 /*
 router.post('/login', restricted, (req, res) => {

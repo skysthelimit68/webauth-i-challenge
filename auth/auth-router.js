@@ -4,6 +4,7 @@ const Users = require('../users/users-model.js');
 const restricted = require('./restricted.js')
 const bcryptjs = require('bcryptjs');
 
+/*
 router.post('/register', (req, res) => {
     let user = req.body;
     const hash = bcryptjs.hashSync(user.password, 8);
@@ -17,6 +18,7 @@ router.post('/register', (req, res) => {
         res.status(500).json(error);
     })
 })
+*/
 /*
 router.get('/', restricted, (req, res) => {
     Users.find()
